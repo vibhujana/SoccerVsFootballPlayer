@@ -28,7 +28,9 @@
 					})
 				});
 				const data = await response.json();
-				predictionElement.textContent = `Prediction: ${data.prediction} (Confidence: ${data.confidence})`;
+				const prediction = data.data[0].label;
+				const confidence = data.data[0].confidences[0].confidence;
+				predictionElement.textContent = `Prediction: ${prediction} (Confidence: ${confidence})`;
 			};
 		});
 	</script>
